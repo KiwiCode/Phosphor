@@ -1,0 +1,6 @@
+author: King_Rat, Grianar
+description: World generator for Minecraft
+main: org.phosphorgen.phosphor.Phosphor
+name: Phosphor
+startup: startup
+version: '0.1'
