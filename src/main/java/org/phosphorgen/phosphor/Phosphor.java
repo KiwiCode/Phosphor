@@ -1,5 +1,6 @@
 package org.phosphorgen.phosphor;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.WorldCreator;
 import org.bukkit.event.EventHandler;
@@ -9,8 +10,7 @@ import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.phosphorgen.phosphor.gen.MainGenerator;
 
-public class Phosphor extends JavaPlugin implements Listener
-{
+public class Phosphor extends JavaPlugin implements Listener {
     public void onDisable() {
     }
 
@@ -23,13 +23,11 @@ public class Phosphor extends JavaPlugin implements Listener
     public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
         return new MainGenerator();
     }
-    
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        try {
-            event.getPlayer().teleport(new Location(getServer().getWorld("test"), 0 , 80, 0));
-        } catch (IllegalStateException ignore) {
-        }
+        event.getPlayer().setGameMode(GameMode.CREATIVE);
+        event.getPlayer().teleport(new Location(getServer().getWorld("test"), 0, 80, 0));
     }
 }
 
